@@ -10,12 +10,14 @@ var currentChapter;
 var chapterH2 = [];
 var chapterH3 = [];
 var chapterH4 = [];
+var chapterH5 = [];
+var chapterH6 = [];
 
 var passFirstChapter = false;
 
 const chaptersToRemove = ['Notes et références', 'Annexes'];
 
-jsdom.fromURL('https://fr.wikipedia.org/wiki/Paris').then(function(dom) {
+jsdom.fromURL('https://fr.wikipedia.org/wiki/Histoire_du_communisme').then(function(dom) {
     const article = dom.window.document.querySelector('.mw-parser-output');
     const elements = article.children;
 
@@ -73,6 +75,30 @@ jsdom.fromURL('https://fr.wikipedia.org/wiki/Paris').then(function(dom) {
             currentChapter = chapterH4;
 
             chapterH3.children.push(chapterH4);
+        }
+
+        if (element.tagName == 'H5') {
+            chapterH5 = {
+                title: element.textContent,
+                children: [],
+                texts: []
+            };
+
+            currentChapter = chapterH5;
+
+            chapterH4.children.push(chapterH5);
+        }
+
+        if (element.tagName == 'H6') {
+            chapterH6 = {
+                title: element.textContent,
+                children: [],
+                texts: []
+            };
+
+            currentChapter = chapterH6;
+
+            chapterH5.children.push(chapterH6);
         }
     }
 
