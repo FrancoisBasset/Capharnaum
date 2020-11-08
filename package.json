@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "description": "Literary game with anagrams from Wikipedia articles",
   "main": "index.js",
-  "dependencies": {
-    "jsdom": "^16.4.0",
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/FrancoisBasset/Capharnaum/issues"
   },
-  "homepage": "https://github.com/FrancoisBasset/Capharnaum#readme"
+  "homepage": "https://github.com/FrancoisBasset/Capharnaum#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
