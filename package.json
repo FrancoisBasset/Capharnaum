@@ -1,0 +1,29 @@
+{
+  "name": "capharnaum",
+  "version": "1.0.0",
+  "description": "Literary game with anagrams from Wikipedia articles",
+  "main": "index.js",
+  "dependencies": {
+    "jsdom": "^16.4.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoisBasset/Capharnaum.git"
+  },
+  "keywords": [
+    "capharnaum",
+    "wikipedia",
+    "anagram"
+  ],
+  "author": "FrancoisBasset",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancoisBasset/Capharnaum/issues"
+  },
+  "homepage": "https://github.com/FrancoisBasset/Capharnaum#readme"
+}
