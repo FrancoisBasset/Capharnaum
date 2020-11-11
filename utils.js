@@ -1,9 +1,14 @@
-const fs = require('fs');
 const jsdom = require('jsdom').JSDOM;
 
-jsdom.fromURL('https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard').then(function(dom) {
-    console.log(dom.window.location.href);
-    const title = dom.window.document.title;
+function getRandomArticle() {
+    return getArticle('https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard');
+}
+
+function getArticle(url) {
+    return jsdom.fromURL(url);
+}
+
+function getInfobox(dom) {
     const nodeList = dom.window.document.querySelectorAll('#infobox_v2, .infobox_v2, .infobox_v3');
 
     if (nodeList.length > 0) {
@@ -26,9 +31,14 @@ jsdom.fromURL('https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard').then(
             link.removeAttribute('href');
         }
 
-        fs.writeFileSync(`./infobox-${title}.html`, body.outerHTML);
+        return body.outerHTML;
     } else {
-        console.log(title);
-        console.log('Pas d\'infobox');
+        return '';
     }
-});
+}
+
+module.exports = {
+    getRandomArticle: getRandomArticle,
+    getArticle: getArticle,
+    getInfobox: getInfobox
+};

@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const utils = require('./utils');
+
 app.use(express.static('./public'));
 
 app.listen(80, function() {
@@ -8,5 +10,9 @@ app.listen(80, function() {
 });
 
 app.get('/', function(req, res) {
-    res.sendFile('./index.html');
+    utils.getRandomArticle().then(dom => {
+        const infobox = utils.getInfobox(dom);
+
+        res.render('./index.ejs', {infobox: infobox});
+    });    
 });
