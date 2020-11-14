@@ -12,11 +12,20 @@
         <button>Search</button>
         <br>
         
-        <%- infobox %>
+        <% for (const text of introduction) { %>
+            <p><%= text %></p>
+        <% } %>
         
         
     </body>
 
+    <script>
+        const introduction = <%- JSON.stringify(introduction) %>;
+        const chapters = <%- JSON.stringify(chapters) %>;
 
+        console.log(introduction);
+        console.log();
+        console.log(chapters);
+    </script>
     
 </html>
