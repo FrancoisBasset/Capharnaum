@@ -6,26 +6,16 @@
 
     <body>
         <img src="/Favicon.png" width="100px" />
-
-        <button>Article au hazard</button>
-        <input type="text" id="search" />
-        <button>Search</button>
-        <br>
         
-        <% for (const text of introduction) { %>
-            <p><%= text %></p>
+        <form action="/" method="POST">
+            <input type="text" name="url" />
+            <input type="submit" name="urlButton" value="Rechercher" />
+
+            <input type="submit" name="randomButton" value="Rechercher au hazard" />
+        </form>
+
+        <% if (locals.article) { %>
+            <%- article.infobox %>
         <% } %>
-        
-        
     </body>
-
-    <script>
-        const introduction = <%- JSON.stringify(introduction) %>;
-        const chapters = <%- JSON.stringify(chapters) %>;
-
-        console.log(introduction);
-        console.log();
-        console.log(chapters);
-    </script>
-    
 </html>

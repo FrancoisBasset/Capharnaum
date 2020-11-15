@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 const utils = require('./utils');
 const Article = require('./Article');
+const RandomArticle = require('./RandomArticle');
 
 app.use(express.static('./public'));
 
@@ -11,12 +16,19 @@ app.listen(80, function() {
 });
 
 app.get('/', function(req, res) {
-    utils.getRandomArticle().then(dom => {
-        const c = utils.getChapters(dom).chapters;
-        const intro = utils.getChapters(dom).introduction;
-
-        res.render('./index.ejs', {introduction: intro, chapters: c});
-    });    
+    res.render('./index.ejs');
 });
 
-Article.getRandom
+app.post('/', function(req, res) {
+    var article;
+
+    if (req.body.urlButton != undefined) {
+        article = new Article(req.body.url)
+    } else if (req.body.randomButton != undefined) {
+        article = new RandomArticle();
+    }
+
+    article.fetch().then(function() {
+        res.render('./index.ejs', {article: article});
+    });
+});

@@ -1,10 +1,6 @@
 const jsdom = require('jsdom').JSDOM;
 
-function getRandomArticle() {
-    return getArticle('https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard');
-}
-
-function getArticle(url) {
+function getDom(url) {
     return jsdom.fromURL(url);
 }
 
@@ -37,7 +33,7 @@ function getInfobox(dom) {
     }
 }
 
-function getChapters(dom) {
+function getContent(dom) {
     var introduction = [];
     var chapters = [];
     var currentChapter = null;
@@ -62,9 +58,15 @@ function getChapters(dom) {
             element.textContent = element.textContent.split('\n').join('');
 
             if (passFirstChapter) {
-                currentChapter.texts.push(element.textContent);
+                currentChapter.texts.push({
+                    text: element.textContent,
+                    words: 0
+                });
             } else {
-                introduction.push(element.textContent);
+                introduction.push({
+                    text: element.textContent,
+                    words: 0
+                });
             }
         }
 
@@ -138,8 +140,7 @@ function getChapters(dom) {
 }
 
 module.exports = {
-    getRandomArticle: getRandomArticle,
-    getArticle: getArticle,
+    getDom: getDom,
     getInfobox: getInfobox,
-    getChapters: getChapters
+    getContent: getContent
 };
