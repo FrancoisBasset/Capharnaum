@@ -2,20 +2,15 @@
 <html>
     <head>
         <title>Capharnaüm</title>
+        <script defer src="/scripts/index.js" type="module"></script>
     </head>
 
     <body>
         <img src="/Favicon.png" width="100px" />
         
-        <form action="/" method="POST">
-            <input type="text" name="url" />
-            <input type="submit" name="urlButton" value="Rechercher" />
+        <input type="text" id="url" />
+        <button id="urlButton">Rechercher</button>
 
-            <input type="submit" name="randomButton" value="Rechercher au hazard" />
-        </form>
-
-        <% if (locals.article) { %>
-            <%- article.infobox %>
-        <% } %>
+        <button id="randomButton">Rechercher au hazard</button>
     </body>
 </html>
