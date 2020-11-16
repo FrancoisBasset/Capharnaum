@@ -1,1 +1,1 @@
-import "./events.js";
+import './events.js';
