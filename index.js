@@ -15,7 +15,7 @@ app.listen(80, function() {
 });
 
 app.get('/', function(req, res) {
-    res.render('./index.ejs');
+    res.sendFile('./index.html');
 });
 
 app.get('/search', function(req, res) {
