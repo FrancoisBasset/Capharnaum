@@ -19,6 +19,46 @@ function startArticle(url) {
 	});
 }
 
+/**
+ * 
+ * @param {string} word 
+ */
+function scrambleWord(word) {
+	if (word.length == 1) {
+		return word;
+	}
+
+	var scrambledWord = word[0];
+	var center = word.slice(1, word.length - 1).split('');
+
+	while (center.length > 0) {
+		const index = Math.floor(Math.random() * center.length);
+		scrambledWord += center.splice(index, 1);
+	}
+
+	scrambledWord += word[word.length - 1];
+
+	return scrambledWord;
+}
+
+/**
+ * 
+ * @param {string} text 
+ */
+function scrambleText(text) {
+	var scrambledText = '';
+
+	for (const word of text.split(',').join('').split(' ')) {
+		scrambledText += scrambleWord(word) + ' ';
+	}
+
+	scrambledText = scrambledText.substr(0, scrambledText.length - 1);
+
+	return scrambledText;
+}
+
 export {
-	startArticle
+	startArticle,
+	scrambleWord,
+	scrambleText
 };
