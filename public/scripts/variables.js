@@ -1,3 +1,9 @@
 export default {
-	article: null
+	article: null,
+
+	text: '',
+	scrambledText: '',
+
+	words: null,
+	index: 0
 };
