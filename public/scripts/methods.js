@@ -59,7 +59,7 @@ function scrambleText(text) {
 	return scrambledText;
 }
 
-export {
+export default {
 	startArticle,
 	scrambleWord,
 	scrambleText

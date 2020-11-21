@@ -1,5 +1,5 @@
-import * as Elements from './elements.js';
-import * as Methods from './methods.js';
+import Elements from './elements.js';
+import Methods from './methods.js';
 
 Elements.urlButton.addEventListener('click', function() {
 	Methods.startArticle(`/search?url=${Elements.urlInput.value}`);

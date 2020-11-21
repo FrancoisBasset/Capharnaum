@@ -5,7 +5,7 @@ const randomButton = document.getElementById('randomButton');
 
 const textInput = document.getElementById('text');
 
-export {
+export default {
 	urlInput,
 	urlButton,
 	randomButton,
