@@ -1,10 +1,10 @@
-import * as Classes from './classes/index.js';
+import Article from './classes/Article.js';
 import Variables from './variables.js';
 
 function createArticle(url) {
 	return fetch(url).then(function(response) {
 		return response.json().then(function(article) {
-			Variables.article = new Classes.Article(
+			Variables.article = new Article(
 				article.title,
 				article.infobox,
 				article.introduction,
@@ -16,6 +16,8 @@ function createArticle(url) {
 function startArticle(url) {
 	createArticle(url).then(function() {
 		console.log(Variables.article);
+
+		console.log(Variables.article.getChapter([6, 1, 3, 0]));
 	});
 }
 

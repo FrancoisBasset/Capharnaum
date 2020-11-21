@@ -1,4 +1,9 @@
+import Article from './classes/Article.js';
+
 export default {
+	/**
+	 * @type {Article}
+	 */
 	article: null,
 
 	text: '',
