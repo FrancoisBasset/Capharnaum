@@ -1,6 +1,13 @@
 import Chapter from './Chapter.js';
 
 export default class Article {
+	/**
+	 * 
+	 * @param {string} title 
+	 * @param {string} infobox 
+	 * @param {Array.<string>} introduction 
+	 * @param {Array.<Chapter>} chapters 
+	 */
 	constructor(title, infobox, introduction, chapters) {
 		this.title = title;
 		this.infobox = infobox;

@@ -8,3 +8,11 @@ Elements.urlButton.addEventListener('click', function() {
 Elements.randomButton.addEventListener('click', function() {
 	Methods.startArticle('/searchRandom');
 });
+
+document.getElementById('chapters').addEventListener('click', function(e) {
+	const indexes = e.target.dataset.chapterindexes;
+
+	if (indexes != null) {
+		Methods.selectChapter(indexes);
+	}
+});

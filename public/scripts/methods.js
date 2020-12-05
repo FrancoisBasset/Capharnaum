@@ -13,11 +13,30 @@ function createArticle(url) {
 	});
 }
 
+function showChaptersTree() {
+	const chapters = document.getElementById('chapters');
+	var index = 0;
+
+	chapters.innerHTML = '';
+
+	for (const chapter of Variables.article.chapters) {
+		chapters.innerHTML += `<div>`;
+		chapters.innerHTML += `<button id="<button class="chapter" data-chapterindexes="${index}">${index + 1} ${chapter.title}</button>`;
+		chapters.innerHTML += '</div>';
+
+		index++;
+	}
+}
+
+function selectChapter(chapterIndexes) {
+	var indexes = chapterIndexes;
+	indexes = indexes.split(',');
+	console.log(Variables.article.getChapter(indexes));
+}
+
 function startArticle(url) {
 	createArticle(url).then(function() {
-		console.log(Variables.article);
-
-		console.log(Variables.article.getChapter([6, 1, 3, 0]));
+		showChaptersTree();
 	});
 }
 
@@ -62,5 +81,6 @@ function scrambleText(text) {
 export default {
 	startArticle,
 	scrambleWord,
-	scrambleText
+	scrambleText,
+	selectChapter
 };
