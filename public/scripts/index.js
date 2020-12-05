@@ -4,21 +4,21 @@ import Variables from './variables.js';
 import Methods from './methods.js';
 import Elements from './elements.js';
 
-Variables.text = 'Paris est la ville la plus peuplée et la capitale de la France';
-Variables.words = Variables.text.split(',').join('').split(' ');
-Variables.scrambledText = Methods.scrambleText(Variables.text);
+Variables.v_text = 'Paris est la ville la plus peuplée et la capitale de la France';
+Variables.v_words = Variables.v_text.split(',').join('').split(' ');
+Variables.v_scrambledText = Methods.scrambleText(Variables.v_text);
 
-console.log(Variables.scrambledText);
+console.log(Variables.v_scrambledText);
 
 Elements.textInput.addEventListener('keyup', function() {
-	if (Variables.index == Variables.words.length) {
+	if (Variables.v_index == Variables.v_words.length) {
 		console.log('✔✔✔✔ C\'est fini !');
 	}
 
-	if (Elements.textInput.value == Variables.words[Variables.index]) {
-		console.log(`✔ Words: ${Math.floor(((Variables.index + 1) / Variables.words.length) * 100)} %`);
+	if (Elements.textInput.value == Variables.v_words[Variables.v_index]) {
+		console.log(`✔ Words: ${Math.floor(((Variables.v_index + 1) / Variables.v_words.length) * 100)} %`);
 
-		Variables.index++;
+		Variables.v_index++;
 
 		Elements.textInput.value = '';
 	}

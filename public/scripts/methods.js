@@ -4,7 +4,7 @@ import Variables from './variables.js';
 function createArticle(url) {
 	return fetch(url).then(function(response) {
 		return response.json().then(function(article) {
-			Variables.article = new Article(
+			Variables.v_article = new Article(
 				article.title,
 				article.infobox,
 				article.introduction,
@@ -19,7 +19,7 @@ function showChaptersTree() {
 
 	chapters.innerHTML = '';
 
-	for (const chapter of Variables.article.chapters) {
+	for (const chapter of Variables.v_article.chapters) {
 		chapters.innerHTML += `<div>`;
 		chapters.innerHTML += `<button id="<button class="chapter" data-chapterindexes="${index}">${index + 1} ${chapter.title}</button>`;
 		chapters.innerHTML += '</div>';
@@ -31,7 +31,7 @@ function showChaptersTree() {
 function selectChapter(chapterIndexes) {
 	var indexes = chapterIndexes;
 	indexes = indexes.split(',');
-	console.log(Variables.article.getChapter(indexes));
+	console.log(Variables.v_article.getChapter(indexes));
 }
 
 function startArticle(url) {

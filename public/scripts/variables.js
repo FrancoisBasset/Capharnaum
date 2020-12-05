@@ -4,11 +4,11 @@ export default {
 	/**
 	 * @type {Article}
 	 */
-	article: null,
+	v_article: null,
 
-	text: '',
-	scrambledText: '',
+	v_text: '',
+	v_scrambledText: '',
 
-	words: null,
-	index: 0
+	v_words: null,
+	v_index: 0
 };
