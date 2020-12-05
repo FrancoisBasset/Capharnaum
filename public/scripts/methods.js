@@ -1,7 +1,7 @@
 import Article from './classes/Article.js';
 import Variables from './variables.js';
 
-function createArticle(url) {
+function m_createArticle(url) {
 	return fetch(url).then(function(response) {
 		return response.json().then(function(article) {
 			Variables.v_article = new Article(
@@ -13,7 +13,7 @@ function createArticle(url) {
 	});
 }
 
-function showChaptersTree() {
+function m_showChaptersTree() {
 	const chapters = document.getElementById('chapters');
 	var index = 0;
 
@@ -28,13 +28,13 @@ function showChaptersTree() {
 	}
 }
 
-function selectChapter(chapterIndexes) {
+function m_selectChapter(chapterIndexes) {
 	var indexes = chapterIndexes;
 	indexes = indexes.split(',');
 	console.log(Variables.v_article.getChapter(indexes));
 }
 
-function startArticle(url) {
+function m_startArticle(url) {
 	createArticle(url).then(function() {
 		showChaptersTree();
 	});
@@ -44,7 +44,7 @@ function startArticle(url) {
  * 
  * @param {string} word 
  */
-function scrambleWord(word) {
+function m_scrambleWord(word) {
 	if (word.length == 1) {
 		return word;
 	}
@@ -66,11 +66,11 @@ function scrambleWord(word) {
  * 
  * @param {string} text 
  */
-function scrambleText(text) {
+function m_scrambleText(text) {
 	var scrambledText = '';
 
 	for (const word of text.split(',').join('').split(' ')) {
-		scrambledText += scrambleWord(word) + ' ';
+		scrambledText += m_scrambleWord(word) + ' ';
 	}
 
 	scrambledText = scrambledText.substr(0, scrambledText.length - 1);
@@ -79,8 +79,8 @@ function scrambleText(text) {
 }
 
 export default {
-	startArticle,
-	scrambleWord,
-	scrambleText,
-	selectChapter
+	m_startArticle,
+	m_scrambleWord,
+	m_scrambleText,
+	m_selectChapter
 };

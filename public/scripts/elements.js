@@ -1,13 +1,13 @@
-const urlInput = document.getElementById('url');
+const e_urlInput = document.getElementById('url');
 
-const urlButton = document.getElementById('urlButton');
-const randomButton = document.getElementById('randomButton');
+const e_urlButton = document.getElementById('urlButton');
+const e_randomButton = document.getElementById('randomButton');
 
-const textInput = document.getElementById('text');
+const e_textInput = document.getElementById('text');
 
 export default {
-	urlInput,
-	urlButton,
-	randomButton,
-	textInput
+	e_urlInput,
+	e_urlButton,
+	e_randomButton,
+	e_textInput
 };
